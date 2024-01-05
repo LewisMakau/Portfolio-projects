@@ -1,9 +1,11 @@
 
 
--- mail address for each employee by 
+-- Turning Mysql safe mode off
 
 SET sql_Safe_updates =0;
-/*UPATE_EMAILS*/
+
+-- update of employee email addresses
+
 USE md_water_services;
 SELECT
 	*
@@ -13,7 +15,7 @@ SET email = CONCAT(LOWER(REPLACE(employee_name, ' ', '.')),
 '@ndogowater.gov');
 
 
--- trim of employee phone numbers
+-- Trim of employee phone numbers
 
 SET sql_Safe_updates =0;
 USE md_water_services;
@@ -24,7 +26,7 @@ UPDATE employee
 SET phone_number = TRIM(phone_number)
 ;
 
--- count how many of our employees live in each town from employee table
+-- Count how many of our employees live in each town from the employee table
 
 USE md_water_services;
 SELECT DISTINCT
@@ -44,7 +46,7 @@ FROM
     md_water_services.employee;
 
 
--- number of records each employee collected
+-- the number of records each employee collected
 -- limited to only the top 3 employee_ids with the highest number of locations visited
 
 SELECT
